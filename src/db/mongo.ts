@@ -1,13 +1,16 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config(); // .env faylidan o'qib oladi
+
 mongoose
-  .connect('mongodb+srv://abduhamidbotirovweb:abduhamidjon707@cluster0.ab9kvno.mongodb.net/codecrafters?retryWrites=true&w=majority')
+  .connect(process.env.MONGODB_URI as string)  
   .then(() => {
     console.log('MongoDB-ga muvaffaqiyatli ulandik');
   })
-  .catch((error: unknown) => {
+  .catch((error) => {
     console.error('MongoDB-ga ulanishda xatolik:', error);
   });
-
 
 // import mongoose from "mongoose";
 
