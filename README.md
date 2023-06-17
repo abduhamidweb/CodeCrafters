@@ -1,2 +1,1 @@
-# Sapid-Backend
-Qisqacha taom buyurtma qilish.
+# Web application of the CodeCrefters
