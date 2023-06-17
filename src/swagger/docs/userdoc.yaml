@@ -1,0 +1,78 @@
+/users:
+  get:
+    tags:
+      - userlar
+    summary: Foydalanuvchilar
+    description: all users
+    responses:
+      200:
+        description: all users
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Users'
+            example:
+              - _id: '6481e63422f3269a0ab504ec'
+                name: 'Abduhamid2'
+                email: 'js@gmail.com'
+                posts: []
+                __v: 0
+  post:
+    summary: Create a new user
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserInput'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostUserResponse'
+            example:
+              success: true
+              message: Foydalanuvchi ma'lumotlari yuborildi. Tasdiqlash kodi yuborildi
+              confirmationCode: '837657'
+
+components:
+  schemas:
+    Users:
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        posts:
+          type: array
+          items:
+            type: string
+        __v:
+          type: number
+    UserInput:
+      type: object
+      properties:
+        name:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+    PostUserResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        confirmationCode:
+          type: string
