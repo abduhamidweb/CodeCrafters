@@ -20,3 +20,9 @@ export interface IProduct extends Document {
     discount?: number;
     count?: number;
 }
+
+
+export interface IClient extends Document {
+    imgLink: string;
+    href: string;
+}
