@@ -10,12 +10,10 @@ const ContactUsSchema = new Schema({
     email: {
         type: String,
         maxLength: [50, 'The email should contain maximum 50 words'],
-        unique: true,
         required: true
     },
     phone: {
-        type: String,
-        unique: true
+        type: String
     },
     description: {
         type: String,
