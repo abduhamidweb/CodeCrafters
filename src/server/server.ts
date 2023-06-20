@@ -1,6 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 // import { connectToDatabase } from "../db/db.js";
-import { contact_us } from "../routes/contact_us.js";
+import { contact_us } from "../routes/contact_us.routes.js";
+import { team } from '../routes/team.routes.js'
 import "../db/mongo.js"
 import fileUpload from "express-fileupload";
 import cors from "cors"
@@ -19,6 +20,7 @@ app.use(fileUpload({
 app.use(express.static(path.join(process.cwd(), 'src', "public")));
 app.use(cors());
 app.use(contact_us)
+app.use(team)
 app.use('/api/docs', swRouter);
 app.use(errorMiddleware);
 // app.listen(PORT, () => console.log("Server listening on port" + PORT));
