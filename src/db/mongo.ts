@@ -8,6 +8,8 @@ mongoose
     console.error('MongoDB-ga ulanishda xatolik:', error);
   });
 
+  // export default mongoose;
+
 
 // import mongoose from "mongoose";
 
