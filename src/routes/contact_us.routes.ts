@@ -9,4 +9,4 @@ contact_us.post('/contacts', POST_CONTACTUS)
 contact_us.put('/contacts/:id', adminChecker, PUT_CONTACTUS)
 contact_us.delete('/contacts/:id', adminChecker, DELETE_CONTACTUS)
 
-export {contact_us}
+export { contact_us }

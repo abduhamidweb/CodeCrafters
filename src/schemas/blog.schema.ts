@@ -2,18 +2,18 @@ import { model, Schema, Types, InferSchemaType } from "mongoose";
 
 
 const BlogSchema = new Schema({
-   title : {
-    type : String,
-    required : true
-   },
-   description  :{
-    type : String
-   },
-   imgLink : {
-    type : String
-   },
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String
+    },
+    imgLink: {
+        type: String
+    },
 }, {
-    timestamps : true
+    timestamps: true
 })
 
 
