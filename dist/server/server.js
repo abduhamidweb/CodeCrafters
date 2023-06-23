@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import express from "express";
 // import { connectToDatabase } from "../db/db.js";
 import { contact_us } from "../routes/contact_us.routes.js";
@@ -32,6 +41,18 @@ app.use('/api/docs', swRouter);
 app.use('/api', clientRouter);
 app.use('/api', blogRouter);
 app.use('/api', usersRouter);
+app.get('/api', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        res.status(200).json({
+            success: true,
+            message: "Welcome to the CodeCrafters campaign API",
+            postmen: "https://documenter.getpostman.com/view/24139682/2s93si1pwE"
+        });
+    }
+    catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+}));
 app.use(errorMiddleware);
 // app.listen(PORT, () => console.log("Server listening on port" + PORT));
 app.listen(PORT, () => console.log("Server listening on port" + PORT));
