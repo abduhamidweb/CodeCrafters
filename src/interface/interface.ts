@@ -26,3 +26,10 @@ export interface IClient extends Document {
     imgLink: string;
     href: string;
 }
+
+export interface IProject extends Document {
+    ProjectTitle: string;
+    Description: string;
+    imagelink: string;
+    projectLink: string;
+}
