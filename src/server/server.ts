@@ -16,7 +16,7 @@ import errorMiddleware from "../middleware/errorHandler.js";
 import swRouter from "../utils/swagger.js";
 import clientRouter from "../routes/client.routes.js";
 import blogRouter from "../routes/blog.routes.js";
-
+import projectsRoutes from "../routes/projects.routes.js";
 import * as path from 'path';
 
 import usersRouter from "../routes/users.router.js";
@@ -36,6 +36,7 @@ app.use('/api/docs', swRouter);
 app.use('/api', clientRouter);
 app.use('/api', blogRouter);
 app.use('/api', usersRouter);
+app.use('/api', projectsRoutes);
 app.get('/api', async (req: Request, res: Response) => {
     try {
         res.status(200).json({
